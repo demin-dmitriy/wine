@@ -1182,11 +1182,11 @@ static void ALSA_AddMidiPort(snd_seq_client_info_t* cinfo, snd_seq_port_info_t* 
 	/* Try to use both client and port names, if this is too long take the port name only.
            In the second case the port name should be explicit enough due to its big size.
 	 */
-	if ( (strlen(snd_seq_client_info_get_name(cinfo)) + strlen(snd_seq_port_info_get_name(pinfo)) + 3) < MAXPNAMELEN ) {
-	    sprintf(midiPortName, "%s - %s", snd_seq_client_info_get_name(cinfo), snd_seq_port_info_get_name(pinfo));
-	} else {
-	    lstrcpynA(midiPortName, snd_seq_port_info_get_name(pinfo), MAXPNAMELEN);
-	}
+	// if ( (strlen(snd_seq_client_info_get_name(cinfo)) + strlen(snd_seq_port_info_get_name(pinfo)) + 3) < MAXPNAMELEN ) {
+	//     sprintf(midiPortName, "%s - %s", snd_seq_client_info_get_name(cinfo), snd_seq_port_info_get_name(pinfo));
+	// } else {
+	    lstrcpynA(midiPortName, snd_seq_client_info_get_name(cinfo), MAXPNAMELEN);
+	// }
         MultiByteToWideChar(CP_UNIXCP, 0, midiPortName, -1, MidiOutDev[MODM_NumDevs].caps.szPname,
                             ARRAY_SIZE(MidiOutDev[MODM_NumDevs].caps.szPname));
 
@@ -1248,11 +1248,11 @@ static void ALSA_AddMidiPort(snd_seq_client_info_t* cinfo, snd_seq_port_info_t* 
 	/* Try to use both client and port names, if this is too long take the port name only.
            In the second case the port name should be explicit enough due to its big size.
 	 */
-	if ( (strlen(snd_seq_client_info_get_name(cinfo)) + strlen(snd_seq_port_info_get_name(pinfo)) + 3) < MAXPNAMELEN ) {
-	    sprintf(midiPortName, "%s - %s", snd_seq_client_info_get_name(cinfo), snd_seq_port_info_get_name(pinfo));
-	} else {
-	    lstrcpynA(midiPortName, snd_seq_port_info_get_name(pinfo), MAXPNAMELEN);
-        }
+	// if ( (strlen(snd_seq_client_info_get_name(cinfo)) + strlen(snd_seq_port_info_get_name(pinfo)) + 3) < MAXPNAMELEN ) {
+	//     sprintf(midiPortName, "%s - %s", snd_seq_client_info_get_name(cinfo), snd_seq_port_info_get_name(pinfo));
+	// } else {
+	    lstrcpynA(midiPortName, snd_seq_client_info_get_name(cinfo), MAXPNAMELEN);
+        // }
         MultiByteToWideChar(CP_UNIXCP, 0, midiPortName, -1, MidiInDev[MIDM_NumDevs].caps.szPname,
                             ARRAY_SIZE(MidiInDev[MIDM_NumDevs].caps.szPname));
 	MidiInDev[MIDM_NumDevs].state = 0;
